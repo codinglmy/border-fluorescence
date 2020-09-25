@@ -1,0 +1,54 @@
+/* CSS初始化 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #060c21;   
+}
+.box{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: #060c21; 
+}
+.content{
+    color: aliceblue; 
+    padding: 18px;
+}
+.content p{
+    margin-top: 12px;
+    line-height: 30px;
+}
+
+/* 伪元素绝对定位，改变位置，然后用linear-gradient完成荧光效果 */
+.box::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background: white;
+    z-index: -1;
+}
+.box::after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background: white;
+    z-index: -2;
+    filter: blur(40px);
+    /*filter属性将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。*/
+}
+.box::before,.box::after{
+    background: linear-gradient(235deg,#89ff00,#060c21,#00bcd4);
+}
